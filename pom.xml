@@ -12,6 +12,15 @@
     <artifactId>director</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>director</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>director-adapter</module>
+        <module>director-app</module>
+        <module>director-domain</module>
+        <module>director-infrastructure</module>
+        <module>director-start</module>
+    </modules>
 
 
     <properties>
@@ -24,33 +33,27 @@
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss.SSSXXX</maven.build.timestamp.format>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <scope>runtime</scope>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
-            <groupId>com.avenger</groupId>
-            <artifactId>actor-web-spring-boot-starter</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
